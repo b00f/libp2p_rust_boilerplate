@@ -1,0 +1,31 @@
+[package]
+description = "libp2p-network"
+name = "network"
+authors = ["Mostafa <mostafa.sedaghat@gmail.com>"]
+version = "0.1.0"
+edition = "2018"
+
+
+[dependencies]
+futures = "0.3.5"
+futures-util = "0.3.5"
+futures_codec = "0.4.0"
+log = "0.4.8"
+async-std = { version = "1.6.0", features = ["unstable"] }
+serde = { version = "1.0", features = ["derive"] }
+async-trait = "0.1"
+serde_cbor = "0.10"
+serde_derive = "1.0"
+libp2p-bitswap = "=0.6.1"
+rand = "0.7.3"
+cid = "*"
+primitive-types = "0.7.2"
+void = "1.0"
+
+[dependencies.libp2p]
+version = "0.24.0"
+features = ["identify", "kad"]
+
+[dev-dependencies]
+tokio = { version = "0.2.22", features = ["macros"] }
+simple_logger = "1.4.0"

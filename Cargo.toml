@@ -1,0 +1,15 @@
+[package]
+name = "libp2p_rust_boilerplate"
+version = "0.1.0"
+authors = ["Mostafa <mostafa.sedaghat@gmail.com>"]
+edition = "2018"
+
+[workspace]
+members = ["network"]
+
+[dependencies]
+network = { path = "./network" }
+tokio = { version = "0.3", features = ["full"] }
+ctrlc = "3.1.4"
+simple_logger = "1.4.0"
+log = "0.4.8"
