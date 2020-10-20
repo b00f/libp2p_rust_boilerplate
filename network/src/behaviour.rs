@@ -90,7 +90,7 @@ impl Behaviour {
         // Kademlia config
         let store = MemoryStore::new(local_peer_id.to_owned());
         let mut kad_config = KademliaConfig::default();
-        let network = format!("/mangostine/kad/{}/kad/1.0.0", config.network_name);
+        let network = format!("/{}/kad/1.0.0", config.network_name);
         kad_config.set_protocol_name(network.as_bytes().to_vec());
         let kademlia_opt = if config.kademlia {
             let mut kademlia = Kademlia::with_config(local_peer_id.to_owned(), store, kad_config);
@@ -112,6 +112,7 @@ impl Behaviour {
             None
         };
 
+
         let mdns_opt = if config.mdns {
             Some(Mdns::new().expect("Could not start mDNS"))
         } else {
@@ -120,7 +121,7 @@ impl Behaviour {
 
         let identity = Identify::new(
             "ipfs/0.1.0".into(),
-            format!("mangostine-{}", "0.1.0"),
+            format!("{}-{}", config.network_name, "0.1.0"),
             local_key.public(),
         );
 
